@@ -1,6 +1,6 @@
 const rootRef = document.querySelector(".main__cards");
-const form = document.querySelector(".main__form");
 const bodyRef = document.querySelector("body");
+const form = document.querySelector(".main__form");
 let filterAndSortAtr, friends, filteredOrSort;
 let copyFriends = [];
 
@@ -59,7 +59,8 @@ function renderCardsMarkup(friends) {
 rootRef.innerHTML = renderCardsMarkup(defaultFriends);
 
 function getSortFriends(friends, filterAndSortAtr) {
-	return friends.sort((a, b) => {
+	const copyForSort = friends.slice();
+	return copyForSort.sort((a, b) => {
 		switch (filterAndSortAtr) {
 			case "ascending-age":
 				return a.dob.age - b.dob.age;
@@ -92,12 +93,11 @@ function getfilterByGender(friends, filterAndSortAtr) {
 
 const formSort = document.querySelector(".form__sort");
 const formGender = document.querySelector(".form__gender");
-formSort.addEventListener("click", handleClick);
-formGender.addEventListener("click", handleClick);
+formSort.addEventListener("click", handleClickForm);
+formGender.addEventListener("click", handleClickForm);
 
-function handleClick({ target }) {
+function handleClickForm({ target }) {
 	filterAndSortAtr = target.dataset.sort;
-
 	if (target.nodeName !== "IMG" && target.nodeName !== "INPUT") {
 		return;
 	}
@@ -107,12 +107,13 @@ function handleClick({ target }) {
 		filterAndSortAtr === "male" ||
 		filterAndSortAtr === "female"
 	) {
-		mainFormInput.value = "";
 		filteredOrSort = getfilterByGender(copyFriends, filterAndSortAtr);
 	} else {
-		clearFilters();
+		mainForm.nameRadio[0].checked = true;
 		filteredOrSort = getSortFriends(copyFriends, filterAndSortAtr);
 	}
+
+	mainFormInput.value = "";
 	rootRef.innerHTML = renderCardsMarkup(sliceBestMatch(filteredOrSort));
 }
 
@@ -126,10 +127,6 @@ function clearFilters() {
 }
 
 const mainForm = document.forms.form;
-mainForm.addEventListener("submit", (event) => {
-	event.preventDefault();
-});
-
 const mainFormInput = mainForm.nameInput;
 mainFormInput.addEventListener("input", findByName);
 
@@ -147,19 +144,28 @@ function findByName(event) {
 }
 
 const filterRef = document.querySelector(".form-filter");
-filterRef.addEventListener("click", function ({ target }) {
-	console.log(target);
+const backDropRef = document.querySelector(".overlay");
+backDropRef.addEventListener("click", onbackdropClick);
+filterRef.addEventListener("click", toggleModal);
+
+function onbackdropClick(event) {
+	if (event.currentTarget === event.target) {
+		backDropRef.classList.toggle("is-hidden");
+		form.classList.toggle("show");
+		filterRef.textContent = "open filter";
+	}
+}
+
+function toggleModal({ target }) {
 	if (target.nodeName !== "DIV") {
 		return;
 	}
+
 	form.classList.toggle("show");
-
-	// const modal = document.querySelector("[data-modal]");
-	// modal.classList.toggle("is-hidden");
-
-	// bodyRef.classList.toggle("body-bg");
+	backDropRef.classList.toggle("is-hidden");
 	filterRef.textContent = "close filter";
+
 	if (!form.classList.contains("show")) {
 		filterRef.textContent = "open filter";
 	}
-});
+}

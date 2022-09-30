@@ -34,10 +34,10 @@
 			<main class="main">
 				<div class="main__container content">
 					<div class="form-wrapper">
+						<div class="overlay is-hidden"></div>
 						<div class="form-filter">Open Filter </div>
 						<div class="main__form">
 							<form
-								action=""
 								name="form"
 								class="form"
 							>
@@ -50,7 +50,6 @@
 										placeholder="Enter friends name"
 									/>
 								</label>
-
 								<div class="form__gender">
 									<div class="form__gender-text">
 										Filter by sex:
@@ -84,7 +83,6 @@
 										female
 									</label>
 								</div>
-
 								<div class="form__sort">
 									<div class="form__sort-age">
 										<p>Sort by age: </p>
@@ -101,7 +99,6 @@
 											data-sort="descending-age"
 										/>
 									</div>
-
 									<div class="form__sort-name">
 										<p>Sort by name: </p>
 										<img
@@ -118,7 +115,6 @@
 										/>
 									</div>
 								</div>
-
 								<div class="form__btn">
 									<button
 										type="button"
@@ -129,12 +125,10 @@
 							</form>
 						</div>
 					</div>
-
 					<div class="main__cards"></div>
 				</div>
 			</main>
 		</div>
-
 		<script
 			src="index.js"
 			type="module"

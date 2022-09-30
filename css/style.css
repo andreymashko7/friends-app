@@ -269,14 +269,15 @@ body {
 .form-filter {
 	position: relative;
 	z-index: 88;
+	min-height: 510px;
 	justify-content: center;
 	background-color: rgb(118 90 225);
 	cursor: pointer;
 	writing-mode: tb-rl;
 	transform: rotate(180deg);
-	padding: 59px 7px;
+	padding: 40px 8px;
 	border-radius: 10px;
-	font-size: 24px;
+	font-size: 23px;
 	color: #fff;
 	text-transform: uppercase;
 	letter-spacing: 18px;

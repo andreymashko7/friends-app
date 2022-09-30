@@ -19,7 +19,7 @@ body {
 @media (max-width: 767.98px) {
 	[class*="__container"] {
 		max-width: none;
-		padding: 10px;
+		padding: 0px;
 	}
 }
 
@@ -131,7 +131,7 @@ body {
 /* --------------------- form  ----------------------- */
 .main__form {
 	display: none;
-	min-width: 263px;
+	min-width: 268px;
 	background-color: #fff;
 	border-radius: 10px;
 	padding: 20px 10px;
@@ -335,5 +335,9 @@ body {
 		text-transform: uppercase;
 		padding: 15px 10px;
 		text-align: center;
+	}
+
+	.card__description {
+		padding-left: 0px;
 	}
 }

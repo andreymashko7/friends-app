@@ -6,7 +6,7 @@ let copyFriends = [];
 
 async function fetchUsers() {
 	const response = await fetch(
-		`https://randomuser.me/api/?results=3000&noinfo`
+		`https://randomuser.me/api/?results=20&noinfo`
 	);
 	return await response.json();
 }

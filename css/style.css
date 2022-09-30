@@ -54,7 +54,7 @@ body {
 
 /* -------------------------cards ------------------------ */
 .main__cards {
-	padding-left: 15px;
+	padding-left: 30px;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px;
@@ -272,9 +272,9 @@ body {
 	justify-content: center;
 	background-color: rgb(118 90 225);
 	cursor: pointer;
-	writing-mode: tb-rl;
+	writing-mode: vertical-lr;
 	transform: rotate(180deg);
-	padding: 10px 8px;
+	padding: 10px 6px;
 	border-radius: 10px;
 	font-size: 23px;
 	color: #fff;

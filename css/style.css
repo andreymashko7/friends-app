@@ -265,12 +265,12 @@ body {
 	color: #fff;
 	text-transform: uppercase;
 	font-weight: 700;
-	min-height: 85vh;
+	min-height: 70vh;
 }
 
 .filter-text {
 	text-align: center;
-	letter-spacing: 30px;
+	letter-spacing: 22px;
 }
 
 .overlay {

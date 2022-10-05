@@ -144,6 +144,7 @@ function findByName(event) {
 }
 
 const filterRef = document.querySelector(".form-filter");
+const filterTextRef = document.querySelector(".filter-text");
 const backDropRef = document.querySelector(".overlay");
 backDropRef.addEventListener("click", onbackdropClick);
 filterRef.addEventListener("click", toggleModal);
@@ -152,7 +153,7 @@ function onbackdropClick(event) {
 	if (event.currentTarget === event.target) {
 		backDropRef.classList.toggle("is-hidden");
 		form.classList.toggle("show");
-		filterRef.textContent = "open filter";
+		filterTextRef.textContent = "open filter";
 	}
 }
 
@@ -163,9 +164,9 @@ function toggleModal({ target }) {
 
 	form.classList.toggle("show");
 	backDropRef.classList.toggle("is-hidden");
-	filterRef.textContent = "close filter";
+	filterTextRef.textContent = "close filter";
 
 	if (!form.classList.contains("show")) {
-		filterRef.textContent = "open filter";
+		filterTextRef.textContent = "open filter";
 	}
 }

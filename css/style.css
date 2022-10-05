@@ -10,20 +10,6 @@ body {
 	margin: 0 auto;
 }
 
-@media (max-width: 1098.98px) {
-	[class*="__container"] {
-		max-width: none;
-		padding: 25px;
-	}
-}
-
-@media (max-width: 767.98px) {
-	[class*="__container"] {
-		max-width: none;
-		padding: 0px;
-	}
-}
-
 .wrapper {
 	min-height: 100%;
 	display: flex;
@@ -54,7 +40,7 @@ body {
 
 /* -------------------------cards ------------------------ */
 .main__cards {
-	padding-left: 30px;
+	padding-left: 42px;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px;
@@ -136,20 +122,17 @@ body {
 	background-color: #fff;
 	border-radius: 10px;
 	padding: 20px 10px;
-	height: auto;
-}
-
-.form-wrapper {
-	position: relative;
+	min-height: 50%;
 }
 
 .show {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	display: block;
 	z-index: 99;
-	top: 0px;
 	background-color: #ccc;
-	left: 53px;
-	position: absolute;
 }
 
 .form__input {
@@ -267,7 +250,9 @@ body {
 }
 
 .form-filter {
-	position: relative;
+	position: fixed;
+	top: 68px;
+	left: 10px;
 	z-index: 88;
 	justify-content: center;
 	background-color: rgb(118 90 225);
@@ -279,8 +264,13 @@ body {
 	font-size: 23px;
 	color: #fff;
 	text-transform: uppercase;
-	letter-spacing: 18px;
 	font-weight: 700;
+	min-height: 100%;
+}
+
+.filter-text {
+	text-align: center;
+	letter-spacing: 30px;
 }
 
 .overlay {
@@ -302,19 +292,13 @@ body {
 
 /* ---------------- adaptive ----------------- */
 
-@media (max-width: 1160.98px) {
+@media (max-width: 1159.98px) {
 	.card {
 		flex-direction: column;
 	}
 	.card__age {
 		top: 11px;
 		right: 11px;
-	}
-}
-
-@media (max-width: 799.98px) {
-	.form-filter {
-		display: block;
 	}
 }
 
@@ -325,20 +309,48 @@ body {
 	.main__form {
 		display: block;
 		width: 300px;
-		height: 100%;
+		min-height: 100vh;
+	}
+	.main__cards {
+		padding-left: 30px;
 	}
 }
+
+@media (min-width: 1160.98px) {
+	.main__form {
+		min-height: 100%;
+	}
+}
+
+@media (min-width: 500px) and (max-width: 799.98px) {
+	.form-filter {
+		display: block;
+		top: 107px;
+	}
+	.header__title {
+		padding-left: 10px;
+	}
+	.main__form {
+		min-width: 300px;
+		padding: 20px;
+	}
+}
+
+/* ---------------  mobile ------------------- */
 
 @media (max-width: 499px) {
 	.header__title {
 		font-size: 38px;
 		font-weight: 800;
 		text-transform: uppercase;
-		padding: 15px 10px;
+		padding: 15px 0;
 		text-align: center;
 	}
 
 	.card__description {
 		padding-right: 0px;
+	}
+	.show {
+		left: 56%;
 	}
 }

@@ -64,6 +64,7 @@ ul li {
 }
 img {
 	display: block;
+	height: auto;
 }
 
 h1,

@@ -20,7 +20,7 @@ const modalRefs = {
 
 async function fetchUsers() {
 	const response = await fetch(
-		`https://randomuser.me/api/?results=15&noinfo`
+		`https://randomuser.me/api/?results=1000&noinfo`
 	);
 	return await response.json();
 }
